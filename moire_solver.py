@@ -568,7 +568,7 @@ class Mtwist:
 
         if( self.if_su2): # kill one of spin
             h1 = np.reshape(self.h1, ( len(self.Q_tot),2,len(self.Q_tot),2) )
-            self.h1 = h1[:,0, :,0]
+            self.h1 = 0.5 * (h1[:,0, :,0] + h1[:,1, :,1])
             if( np.max(np.abs(h1[:,0,:,1]))>1e-3):
                 print( np.max(np.abs(h1[:,0,:,1])) )
                 raise ValueError('Donnot have su2')
